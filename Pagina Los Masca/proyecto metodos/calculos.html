@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOS MASCA | Predicción de ventas</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <h1>LOS MASCA</h1>
+        <p>Pastelería</p>
+    </div>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="ventas.html">Ventas</a>
+        <a href="calculos.html">Cálculos</a>
+        <a href="prediccion.html">Predicción</a>
+        <a href="conclusiones.html">Conclusiones</a>
+    </nav>
+
+</header>
+
+<main class="contenedor">
+
+<section class="contenido">
+
+    <h2>Cálculos matemáticos</h2>
+
+    <p>
+        En este apartado se aplica el método de mínimos
+        cuadrados para analizar el comportamiento de las
+        ventas de la pastelería LOS MASCA.
+    </p>
+
+    <h3>Resultados obtenidos</h3>
+
+    <div class="resultados">
+
+        <div class="resultado">
+            <h4>Pendiente (m)</h4>
+            <p id="res-m"></p>
+        </div>
+
+        <div class="resultado">
+            <h4>Ordenada al origen (b)</h4>
+            <p id="res-b"></p>
+        </div>
+
+        <div class="resultado">
+            <h4>Correlación (r)</h4>
+            <p id="res-r"></p>
+        </div>
+
+    </div>
+
+    <h3>Ecuación de regresión lineal</h3>
+
+    <div class="ecuacion">
+        <p id="ecuacion"></p>
+    </div>
+
+    <h3>Interpretación de resultados</h3>
+
+    <p>
+        La pendiente indica que las ventas aumentan
+        aproximadamente $<span id="texto-m"></span>
+        por cada mes.
+    </p>
+
+    <p>
+        La ordenada al origen representa el valor estimado
+        de las ventas cuando x es igual a cero.
+    </p>
+
+    <p>
+        El coeficiente de correlación indica una relación
+        lineal positiva muy fuerte entre el tiempo y las ventas.
+    </p>
+
+</section>
+
+<script>
+    // Datos de ventas de enero a octubre (puedes cambiarlos aquí)
+    var ventas = [8500, 9200, 8900, 10000, 10500, 11200, 10800, 12000, 12500, 13200];
+
+    // Da formato de dinero sin símbolo: 13200 -> 13,200.00
+    function formato(numero, decimales) {
+        return numero.toLocaleString("en-US", {
+            minimumFractionDigits: decimales,
+            maximumFractionDigits: decimales
+        });
+    }
+
+    // Método de mínimos cuadrados: calcula m, b y r
+    function regresion(ventas) {
+        var n = ventas.length;
+        var sumaX = 0, sumaY = 0, sumaXY = 0, sumaX2 = 0, sumaY2 = 0;
+
+        for (var i = 0; i < n; i++) {
+            var x = i + 1;
+            var y = ventas[i];
+
+            sumaX  += x;
+            sumaY  += y;
+            sumaXY += x * y;
+            sumaX2 += x * x;
+            sumaY2 += y * y;
+        }
+
+        // Pendiente (m)
+        var m = (n * sumaXY - sumaX * sumaY) /
+                (n * sumaX2 - sumaX * sumaX);
+
+        // Ordenada al origen (b)
+        var b = (sumaY - m * sumaX) / n;
+
+        // Coeficiente de correlación (r)
+        var r = (n * sumaXY - sumaX * sumaY) /
+                Math.sqrt((n * sumaX2 - sumaX * sumaX) *
+                          (n * sumaY2 - sumaY * sumaY));
+
+        return { m: m, b: b, r: r };
+    }
+
+    // Calcula y muestra los resultados
+    var datos = regresion(ventas);
+
+    document.getElementById("res-m").innerHTML = "$" + formato(datos.m, 2);
+    document.getElementById("res-b").innerHTML = "$" + formato(datos.b, 2);
+    document.getElementById("res-r").innerHTML = formato(datos.r, 4);
+    document.getElementById("ecuacion").innerHTML =
+        "y = " + formato(datos.m, 2) + " x + " + formato(datos.b, 2);
+    document.getElementById("texto-m").innerHTML = formato(datos.m, 2);
+</script>
+
+</main>
+
+<footer>
+    <a href="index.html">← Volver al inicio</a>
+
+    <p>LOS MASCA - Pastelería</p>
+
+    <p>
+        Proyecto integrador de Métodos Numéricos
+    </p>
+
+    <p>
+        Sistema de predicción de ventas © 2026
+    </p>
+
+</footer>
+
+</body>
+</html>

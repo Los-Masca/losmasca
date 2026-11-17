@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Masca | Pastelería</title>
+
+<!-- =====================================================
+     1. ESTILOS (colores y diseño)
+     Los colores se cambian en :root, aquí abajo.
+     ===================================================== -->
+<style>
+:root {
+    --rosa: #f48fb1;
+    --rosa-oscuro: #d81b60;
+    --rosa-claro: #fde4ee;
+    --crema: #fff8f3;
+    --cafe: #65404c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--crema);
+    color: var(--cafe);
+}
+
+/* ----- Encabezado ----- */
+header {
+    background: var(--rosa);
+    padding: 12px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    background: white;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-carrito {
+    background: var(--rosa-oscuro);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ----- Portada ----- */
+.hero {
+    text-align: center;
+    padding: 55px 20px;
+    background: linear-gradient(135deg, #fde4ee, #fff8f3);
+}
+
+.hero h1 {
+    color: var(--rosa-oscuro);
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* ----- Secciones ----- */
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+.titulo {
+    color: var(--rosa-oscuro);
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 28px;
+}
+
+/* ----- Productos ----- */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(216,27,96,.12);
+}
+
+/* Recuadro de la foto. El emoji se ve si no hay foto. */
+.foto {
+    position: relative;
+    height: 180px;
+    background: var(--rosa-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+}
+
+.foto img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.producto .datos {
+    padding: 18px;
+}
+
+.producto h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 8px;
+}
+
+.producto p {
+    line-height: 1.5;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.precio {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.boton {
+    background: var(--rosa-oscuro);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.boton.claro {
+    background: white;
+    color: var(--rosa-oscuro);
+    border: 2px solid var(--rosa-oscuro);
+}
+
+/* ----- Carrito (panel lateral) ----- */
+#fondo {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,.4);
+    display: none;
+    z-index: 20;
+}
+
+#carrito {
+    position: fixed;
+    top: 0;
+    right: -440px;           /* escondido fuera de la pantalla */
+    width: 400px;
+    max-width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    transition: right .3s;
+}
+
+#carrito.abierto {
+    right: 0;
+}
+
+.carrito-titulo {
+    background: var(--rosa-claro);
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--rosa-oscuro);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.carrito-titulo button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--cafe);
+}
+
+#lista-carrito {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 20px;
+}
+
+.linea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--rosa-claro);
+}
+
+.linea .nombre {
+    flex: 1;
+}
+
+.linea .nombre small {
+    color: #8c7a80;
+}
+
+.linea button {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--rosa);
+    background: white;
+    color: var(--rosa-oscuro);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.carrito-pie {
+    padding: 18px 20px;
+    border-top: 2px solid var(--rosa-claro);
+    background: var(--crema);
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.carrito-pie .boton {
+    width: 100%;
+}
+
+/* ----- Ventanas (formulario y confirmación) ----- */
+.ventana {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    z-index: 40;
+}
+
+.ventana .caja {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    width: 500px;
+    max-width: 100%;
+    max-height: 92vh;
+    overflow-y: auto;
+}
+
+.ventana h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.ventana label {
+    display: block;
+    font-weight: bold;
+    margin: 12px 0 4px;
+}
+
+.ventana input, .ventana textarea, .ventana select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--rosa-claro);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.resumen {
+    background: var(--crema);
+    border-radius: 12px;
+    padding: 12px 15px;
+    margin: 14px 0;
+    line-height: 1.8;
+}
+
+.error {
+    color: #c0264f;
+    min-height: 20px;
+    margin-top: 8px;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.botones .boton {
+    flex: 1;
+    text-align: center;
+}
+
+/* ----- Pie de página ----- */
+footer {
+    background: var(--rosa);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    line-height: 1.8;
+    margin-top: 30px;
+}
+
+@media(max-width:650px) {
+    .hero h1 { font-size: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     2. ENCABEZADO (logo + botón del carrito)
+     El logo es la imagen logo.png
+     ===================================================== -->
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo Los Masca">
+        LOS MASCA
+    </div>
+    <a href="../index.html">← Volver al inicio</a>
+    <button class="btn-carrito" onclick="abrirCarrito()">
+        🛒 Carrito (<span id="contador">0</span>)
+    </button>
+</header>
+
+<!-- =====================================================
+     3. PORTADA
+     ===================================================== -->
+<section class="hero">
+    <h1>Pastelería Los Masca</h1>
+    <p>
+        Elige tus pasteles, cupcakes, galletas y postres favoritos,
+        agrégalos al carrito y haz tu pedido en línea.
+    </p>
+</section>
+
+<main>
+
+<!-- ==================== CATEGORÍA: PASTELES ==================== -->
+<section class="contenedor" id="pasteles">
+    <h2 class="titulo">Pasteles</h2>
+    <div class="productos">
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍰<img src="pastelfresa.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Pastel de fresas</h3>
+                <p>Bizcocho de vainilla con crema y fresas frescas. 10 porciones.</p>
+                <div class="precio">$420.00</div>
+                <button class="boton" onclick="agregar('Pastel de fresas', 420)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🎂<img src="pastelchoco.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Pastel de chocolate</h3>
+                <p>Húmedo y esponjoso con cobertura de chocolate. 10 porciones.</p>
+                <div class="precio">$450.00</div>
+                <button class="boton" onclick="agregar('Pastel de chocolate', 450)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍰<img src="pasteltresL.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Pastel tres leches</h3>
+                <p>Clásico bañado en tres leches con crema chantilly. 10 porciones.</p>
+                <div class="precio">$400.00</div>
+                <button class="boton" onclick="agregar('Pastel tres leches', 400)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍰<img src="rebanada.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Rebanada de pastel</h3>
+                <p>Rebanada individual del sabor del día.</p>
+                <div class="precio">$60.00</div>
+                <button class="boton" onclick="agregar('Rebanada de pastel', 60)">Agregar +</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==================== CATEGORÍA: CUPCAKES ==================== -->
+<section class="contenedor" id="cupcakes">
+    <h2 class="titulo">Cupcakes</h2>
+    <div class="productos">
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🧁<img src="cupvainilla.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Cupcake de vainilla</h3>
+                <p>Con betún de crema y chispas de colores.</p>
+                <div class="precio">$35.00</div>
+                <button class="boton" onclick="agregar('Cupcake de vainilla', 35)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🧁<img src="cupchoco.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Cupcake de chocolate</h3>
+                <p>Con betún de chocolate y cereza.</p>
+                <div class="precio">$35.00</div>
+                <button class="boton" onclick="agregar('Cupcake de chocolate', 35)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🧁<img src="cupfresas.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Cupcake red velvet</h3>
+                <p>Con betún de queso crema.</p>
+                <div class="precio">$42.00</div>
+                <button class="boton" onclick="agregar('Cupcake red velvet', 42)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🎁<img src="paquetecup.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Caja de 6 cupcakes</h3>
+                <p>Surtidos, ideal para regalar.</p>
+                <div class="precio">$200.00</div>
+                <button class="boton" onclick="agregar('Caja de 6 cupcakes', 200)">Agregar +</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==================== CATEGORÍA: GALLETAS ==================== -->
+<section class="contenedor" id="galletas">
+    <h2 class="titulo">Galletas</h2>
+    <div class="productos">
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍪<img src="galletacora.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Galletas decoradas (6 pzs)</h3>
+                <p>Galletas de mantequilla decoradas a mano.</p>
+                <div class="precio">$130.00</div>
+                <button class="boton" onclick="agregar('Galletas decoradas (6 pzs)', 130)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍪<img src="gallechisp.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Cookies de chispas (4 pzs)</h3>
+                <p>Suaves por dentro y doraditas por fuera.</p>
+                <div class="precio">$90.00</div>
+                <button class="boton" onclick="agregar('Cookies de chispas (4 pzs)', 90)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍬<img src="macarrones.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Macarons (caja de 6)</h3>
+                <p>Sabores surtidos.</p>
+                <div class="precio">$160.00</div>
+                <button class="boton" onclick="agregar('Macarons (caja de 6)', 160)">Agregar +</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ==================== CATEGORÍA: POSTRES ==================== -->
+<section class="contenedor" id="postres">
+    <h2 class="titulo">Postres</h2>
+    <div class="productos">
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍮<img src="flan.jpg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Flan napolitano</h3>
+                <p>Cremoso, con caramelo casero.</p>
+                <div class="precio">$45.00</div>
+                <button class="boton" onclick="agregar('Flan napolitano', 45)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍰<img src="roles.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Roles de Canela</h3>
+                <p>Roles con canela.</p>
+                <div class="precio">$55.00</div>
+                <button class="boton" onclick="agregar('Roles de Canela', 55)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍫<img src="conchas.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Conchas</h3>
+                <p>Intenso sabor fresa y vainilla.</p>
+                <div class="precio">$35.00</div>
+                <button class="boton" onclick="agregar('Conchas', 35)">Agregar +</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTO -->
+        <div class="producto">
+            <div class="foto">🍩<img src="donas.jpeg" alt="" onerror="this.remove()"></div>
+            <div class="datos">
+                <h3>Dona glaseada</h3>
+                <p>Con glaseado rosa y grageas.</p>
+                <div class="precio">$28.00</div>
+                <button class="boton" onclick="agregar('Dona glaseada', 28)">Agregar +</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- =====================================================
+     5. PIE DE PÁGINA
+     ===================================================== -->
+<footer>
+    <h3>LOS MASCA</h3>
+    <p>Pedidos por WhatsApp: 56 62041241</p>
+    <p>Proyecto Integrador 2026</p>
+    <p>Proyectos de Negocios Electrónicos</p>
+</footer>
+
+
+<!-- =====================================================
+     6. CARRITO (panel que sale a la derecha)
+     No necesitas mover nada de aquí.
+     ===================================================== -->
+<div id="fondo" onclick="cerrarCarrito()"></div>
+
+<div id="carrito">
+    <div class="carrito-titulo">
+        Tu carrito
+        <button onclick="cerrarCarrito()">×</button>
+    </div>
+
+    <div id="lista-carrito"></div>
+
+    <div class="carrito-pie">
+        <div class="total"><span>Total</span><span id="total">$0.00</span></div>
+        <button class="boton" onclick="irAPedido()">Hacer pedido</button>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     7. FORMULARIO DEL PEDIDO
+     ===================================================== -->
+<div class="ventana" id="ventana-pedido">
+    <div class="caja">
+        <h3>Datos de tu pedido</h3>
+
+        <label>Nombre completo *</label>
+        <input type="text" id="nombre">
+
+        <label>Teléfono / WhatsApp (10 dígitos) *</label>
+        <input type="tel" id="telefono">
+
+        <label>Tipo de entrega *</label>
+        <select id="entrega">
+            <option>Recoger en tienda</option>
+            <option>Entrega a domicilio</option>
+        </select>
+
+        <label>Dirección (solo si es a domicilio)</label>
+        <input type="text" id="direccion">
+
+        <label>Fecha en que lo necesitas *</label>
+        <input type="date" id="fecha">
+
+        <label>Notas (dedicatoria, sabores, alergias...)</label>
+        <textarea id="notas" rows="3"></textarea>
+
+        <div class="resumen" id="resumen-pedido"></div>
+        <div class="error" id="error"></div>
+
+        <div class="botones">
+            <button class="boton claro" onclick="cerrarVentanas(); abrirCarrito()">Volver</button>
+            <button class="boton" onclick="confirmarPedido()">Confirmar pedido</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     8. CONFIRMACIÓN DEL PEDIDO
+     ===================================================== -->
+<div class="ventana" id="ventana-ok">
+    <div class="caja">
+        <h3>¡Pedido registrado! 🎉</h3>
+        <p>Tu folio es <b id="folio"></b>. Envíanos tu pedido por WhatsApp para confirmarlo.</p>
+        <div class="resumen" id="resumen-final"></div>
+        <div class="botones">
+            <a class="boton" id="boton-whatsapp" target="_blank">Enviar por WhatsApp</a>
+            <button class="boton claro" onclick="cerrarVentanas()">Cerrar</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- =====================================================
+     9. PROGRAMACIÓN DEL CARRITO (JavaScript)
+     Lo único que tienes que cambiar aquí es el número de WhatsApp.
+     ===================================================== -->
+<script>
+
+// >>> CAMBIA ESTE NÚMERO: 52 + los 10 dígitos de la pastelería
+var WHATSAPP = "525662041241";
+
+// Aquí se guardan los productos que el cliente agrega.
+// Cada uno se ve así: { nombre: "Pastel de fresas", precio: 420, cantidad: 2 }
+var carrito = [];
+
+
+// Da formato de dinero: 420 -> $420.00
+function dinero(numero) {
+    return "$" + numero.toFixed(2);
+}
+
+// Suma el total de todo el carrito
+function calcularTotal() {
+    var total = 0;
+    for (var i = 0; i < carrito.length; i++) {
+        total = total + carrito[i].precio * carrito[i].cantidad;
+    }
+    return total;
+}
+
+// Cuenta cuántos productos hay en total (para el número del botón)
+function contarProductos() {
+    var cuenta = 0;
+    for (var i = 0; i < carrito.length; i++) {
+        cuenta = cuenta + carrito[i].cantidad;
+    }
+    return cuenta;
+}
+
+
+// ---------- AGREGAR UN PRODUCTO ----------
+// Se llama desde el botón "Agregar +" de cada producto.
+function agregar(nombre, precio) {
+    // Si ya está en el carrito, solo sube la cantidad
+    for (var i = 0; i < carrito.length; i++) {
+        if (carrito[i].nombre === nombre) {
+            carrito[i].cantidad++;
+            dibujarCarrito();
+            return;
+        }
+    }
+    // Si no estaba, lo agrega nuevo
+    carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
+    dibujarCarrito();
+}
+
+// ---------- SUBIR O BAJAR CANTIDAD ----------
+function cambiarCantidad(posicion, cambio) {
+    carrito[posicion].cantidad = carrito[posicion].cantidad + cambio;
+    if (carrito[posicion].cantidad <= 0) {
+        carrito.splice(posicion, 1);   // la quita del carrito
+    }
+    dibujarCarrito();
+}
+
+
+// ---------- DIBUJAR EL CARRITO EN PANTALLA ----------
+function dibujarCarrito() {
+    var html = "";
+
+    if (carrito.length === 0) {
+        html = "<p style='text-align:center;padding:40px 0'>Tu carrito está vacío 🧁</p>";
+    }
+
+    for (var i = 0; i < carrito.length; i++) {
+        var p = carrito[i];
+        html += "<div class='linea'>" +
+                  "<div class='nombre'><b>" + p.nombre + "</b><br>" +
+                  "<small>" + dinero(p.precio) + " c/u = " + dinero(p.precio * p.cantidad) + "</small></div>" +
+                  "<button onclick='cambiarCantidad(" + i + ", -1)'>−</button>" +
+                  "<b>" + p.cantidad + "</b>" +
+                  "<button onclick='cambiarCantidad(" + i + ", 1)'>+</button>" +
+                "</div>";
+    }
+
+    document.getElementById("lista-carrito").innerHTML = html;
+    document.getElementById("total").innerHTML = dinero(calcularTotal());
+    document.getElementById("contador").innerHTML = contarProductos();
+}
+
+
+// ---------- ABRIR Y CERRAR EL CARRITO ----------
+function abrirCarrito() {
+    document.getElementById("carrito").className = "abierto";
+    document.getElementById("fondo").style.display = "block";
+}
+
+function cerrarCarrito() {
+    document.getElementById("carrito").className = "";
+    document.getElementById("fondo").style.display = "none";
+}
+
+function cerrarVentanas() {
+    document.getElementById("ventana-pedido").style.display = "none";
+    document.getElementById("ventana-ok").style.display = "none";
+}
+
+
+// ---------- HACER PEDIDO ----------
+// Texto con la lista de productos y el total (se usa en el resumen)
+function resumenDelCarrito() {
+    var html = "";
+    for (var i = 0; i < carrito.length; i++) {
+        html += carrito[i].cantidad + " × " + carrito[i].nombre +
+                " — " + dinero(carrito[i].precio * carrito[i].cantidad) + "<br>";
+    }
+    html += "<b>Total: " + dinero(calcularTotal()) + "</b>";
+    return html;
+}
+
+// Botón "Hacer pedido" del carrito: abre el formulario
+function irAPedido() {
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío. Agrega algún producto.");
+        return;
+    }
+    cerrarCarrito();
+    document.getElementById("resumen-pedido").innerHTML = resumenDelCarrito();
+    document.getElementById("error").innerHTML = "";
+    document.getElementById("ventana-pedido").style.display = "flex";
+}
+
+// Botón "Confirmar pedido": revisa los datos y arma el mensaje
+function confirmarPedido() {
+    var nombre    = document.getElementById("nombre").value.trim();
+    var telefono  = document.getElementById("telefono").value.replace(/\D/g, "");
+    var entrega   = document.getElementById("entrega").value;
+    var direccion = document.getElementById("direccion").value.trim();
+    var fecha     = document.getElementById("fecha").value;
+    var notas     = document.getElementById("notas").value.trim();
+    var error     = document.getElementById("error");
+
+    // Revisión de los datos
+    if (nombre.length < 3) { error.innerHTML = "Escribe tu nombre completo."; return; }
+    if (telefono.length !== 10) { error.innerHTML = "El teléfono debe tener 10 dígitos."; return; }
+    if (entrega === "Entrega a domicilio" && direccion.length < 8) {
+        error.innerHTML = "Escribe la dirección de entrega."; return;
+    }
+    if (fecha === "") { error.innerHTML = "Elige la fecha en que lo necesitas."; return; }
+
+    // Folio del pedido
+    var folio = "MASCA-" + String(Date.now()).slice(-6);
+
+    // Mensaje que se enviará por WhatsApp
+    var mensaje = "*Nuevo pedido LOS MASCA* 🧁\n" +
+                  "Folio: " + folio + "\n" +
+                  "Nombre: " + nombre + "\n" +
+                  "Teléfono: " + telefono + "\n" +
+                  "Entrega: " + entrega + (entrega === "Entrega a domicilio" ? " - " + direccion : "") + "\n" +
+                  "Fecha: " + fecha + "\n";
+    if (notas !== "") { mensaje += "Notas: " + notas + "\n"; }
+    mensaje += "\n";
+    for (var i = 0; i < carrito.length; i++) {
+        mensaje += "• " + carrito[i].cantidad + " x " + carrito[i].nombre +
+                   " - " + dinero(carrito[i].precio * carrito[i].cantidad) + "\n";
+    }
+    mensaje += "\n*Total: " + dinero(calcularTotal()) + "*";
+
+    // Muestra la confirmación
+    document.getElementById("folio").innerHTML = folio;
+    document.getElementById("resumen-final").innerHTML = resumenDelCarrito();
+    document.getElementById("boton-whatsapp").href =
+        "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensaje);
+
+    document.getElementById("ventana-pedido").style.display = "none";
+    document.getElementById("ventana-ok").style.display = "flex";
+
+    // Vacía el carrito
+    carrito = [];
+    dibujarCarrito();
+}
+
+// Dibuja el carrito al abrir la página
+dibujarCarrito();
+
+</script>
+
+</body>
+</html>

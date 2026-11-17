@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Masca | English Project</title>
+
+<style>
+:root {
+    --rosa: #f48fb1;
+    --rosa-oscuro: #d81b60;
+    --rosa-claro: #fde4ee;
+    --crema: #fff8f3;
+    --cafe: #65404c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--crema);
+    color: var(--cafe);
+}
+
+header {
+    background: var(--rosa);
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #fde4ee, #fff8f3);
+}
+
+.hero h1 {
+    color: var(--rosa-oscuro);
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--rosa-oscuro);
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.presentacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.logo-empresa {
+    background: var(--rosa-claro);
+    border-radius: 20px;
+    padding: 50px 15px;
+    text-align: center;
+    font-size: 65px;
+}
+
+.logo-empresa h2 {
+    color: var(--rosa-oscuro);
+}
+
+.texto {
+    line-height: 1.8;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 25px;
+    border-radius: 17px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(216,27,96,.12);
+}
+
+.tarjeta h3 {
+    color: var(--rosa-oscuro);
+    margin: 12px 0;
+}
+
+.tarjeta p {
+    line-height: 1.6;
+}
+
+.icono {
+    font-size: 45px;
+}
+
+.contacto {
+    background: var(--rosa-claro);
+    padding: 35px;
+    text-align: center;
+    border-radius: 20px;
+    line-height: 1.9;
+}
+
+footer {
+    background: var(--rosa);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+@media(max-width:650px) {
+    .presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🧁 LOS MASCA</div>
+    <a href="index.html">← Back to Home</a>
+</header>
+
+<section class="hero">
+    <h1>Welcome to Los Masca!</h1>
+
+    <p>
+        Delicious cakes, cupcakes and desserts
+        made with love for every special occasion.
+    </p>
+</section>
+
+<main>
+
+<!-- BUSINESS -->
+
+<section class="contenedor">
+    <h2 class="titulo">Our Business</h2>
+
+    <div class="presentacion">
+
+        <div class="logo-empresa">
+            🧁
+            <h2>LOS MASCA</h2>
+        </div>
+
+        <div class="texto">
+            <h2>Who are we?</h2>
+            <br>
+            <p>
+                Los Masca is a bakery business dedicated
+                to preparing and selling delicious desserts.
+                We offer cakes, cupcakes, cookies and
+                different sweet treats.
+            </p>
+            <br>
+            <p>
+                Our goal is to provide quality products
+                and excellent customer service for
+                every special moment.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- MISSION AND VISION -->
+
+<section class="contenedor">
+    <h2 class="titulo">Our Mission and Vision</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">🎯</div>
+            <h3>Our Mission</h3>
+            <p>
+                To offer delicious, high-quality bakery
+                products while providing friendly
+                and personalized customer service.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🌟</div>
+            <h3>Our Vision</h3>
+            <p>
+                To become a recognized bakery known
+                for its creativity, quality and
+                commitment to our customers.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- VALUES -->
+
+<section class="contenedor">
+    <h2 class="titulo">Our Values</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">💗</div>
+            <h3>Responsibility</h3>
+            <p>We fulfill our commitments and provide good service.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">✨</div>
+            <h3>Creativity</h3>
+            <p>We create attractive and original desserts.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🤝</div>
+            <h3>Commitment</h3>
+            <p>We work with dedication in everything we do.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">⭐</div>
+            <h3>Quality</h3>
+            <p>We care about the quality of our products.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="contenedor">
+    <h2 class="titulo">Our Products</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">🎂</div>
+            <h3>Cakes</h3>
+            <p>Delicious cakes for birthdays and celebrations.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🧁</div>
+            <h3>Cupcakes</h3>
+            <p>Small and delicious cakes with different flavors.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🍪</div>
+            <h3>Cookies</h3>
+            <p>Homemade and decorated cookies.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🍰</div>
+            <h3>Desserts</h3>
+            <p>A variety of sweet desserts to enjoy.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="contenedor">
+    <h2 class="titulo">Why Choose Los Masca?</h2>
+
+    <div class="contacto">
+        <h3>Made with Love! 💗</h3>
+
+        <p>
+            We offer delicious products, creative designs
+            and friendly customer service.
+            Every dessert is prepared with dedication
+            to make your special moments sweeter.
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contenedor">
+    <h2 class="titulo">Contact Us</h2>
+
+    <div class="contacto">
+        <p><b>Business:</b> Los Masca Bakery</p>
+        <p><b>Location:</b> Ecatepec, State of Mexico</p>
+        <p><b>Phone:</b> 56 62041241</p>
+        <p><b>Social Media:</b> Facebook and Instagram</p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <h3>LOS MASCA</h3>
+    <p>Integrated Project 2026</p>
+    <p>English Subject</p>
+    <p>© 2026 Los Masca. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

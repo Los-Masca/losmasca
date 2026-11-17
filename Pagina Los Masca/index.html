@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Masca | Proyecto Integrador</title>
+
+<style>
+:root {
+    --rosa: #f48fb1;
+    --rosa-oscuro: #d81b60;
+    --rosa-claro: #fde4ee;
+    --crema: #fff8f3;
+    --cafe: #65404c;
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--crema);
+    color: var(--cafe);
+}
+
+/* ENCABEZADO */
+header {
+    background: var(--rosa);
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 27px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+nav a:hover { color: #7b1740; }
+
+/* PORTADA CON MARCA DE AGUA Y VIDEO */
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    text-align: center;
+    padding: 65px 20px 70px;
+    background: linear-gradient(135deg, #fbd3e2, #fff3ed);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: min(48vw, 440px);
+    opacity: .075;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero h1 {
+    color: var(--rosa-oscuro);
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.boton-principal {
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--rosa-oscuro);
+    color: white;
+    text-decoration: none;
+    padding: 13px 28px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: .25s;
+}
+
+.boton-principal:hover {
+    background: #ad124b;
+    transform: translateY(-2px);
+}
+
+.video-contenedor {
+    width: min(850px, 92%);
+    margin: 38px auto 0;
+    padding: 12px;
+    background: rgba(255, 255, 255, .72);
+    border: 1px solid rgba(216, 27, 96, .12);
+    border-radius: 22px;
+    box-shadow: 0 12px 32px rgba(130, 45, 78, .15);
+}
+
+.video-contenedor video {
+    display: block;
+    width: 100%;
+    max-height: 470px;
+    background: #3b2530;
+    border-radius: 14px;
+}
+
+/* MATERIAS */
+.contenedor {
+    max-width: 1150px;
+    margin: auto;
+    padding: 55px 20px;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--rosa-oscuro);
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.descripcion {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #80616e;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(216,27,96,.12);
+    transition: .3s;
+}
+
+.tarjeta:hover { transform: translateY(-6px); }
+
+.icono {
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+
+.tarjeta h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 63px;
+    margin-bottom: 18px;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--rosa);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.btn:hover { background: var(--rosa-oscuro); }
+
+/* SECCIONES DE PROYECTOS */
+.proyecto {
+    background: var(--rosa-claro);
+    padding: 35px;
+    margin-bottom: 22px;
+    border-radius: 18px;
+}
+
+.proyecto h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 12px;
+}
+
+.proyecto p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* TIENDA */
+.tienda {
+    background: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.tienda h2 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 15px;
+}
+
+.tienda p { margin-bottom: 20px; }
+
+/* PIE */
+footer {
+    background: var(--rosa);
+    color: white;
+    text-align: center;
+    padding: 28px;
+    line-height: 1.8;
+}
+
+@media(max-width:600px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .logo { font-size: 23px; }
+
+    .hero { padding: 48px 16px 55px; }
+
+    .hero h1 { font-size: 32px; }
+
+    .hero p { font-size: 16px; }
+
+    .hero::before { background-size: 75vw; }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .video-contenedor {
+        width: 100%;
+        padding: 7px;
+    }
+
+    .proyecto { padding: 25px 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <img src="logo.png" alt="Logo de Los Masca">
+        <span>LOS MASCA</span>
+    </div>
+
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#materias">Materias</a>
+        <a href="#proyectos">Proyectos</a>
+        
+    </nav>
+</header>
+
+<section class="hero" id="inicio">
+    <h1>Bienvenidos a Los Masca</h1>
+
+    <p>
+        Un proyecto integrador que reúne diferentes áreas
+        de conocimiento, creatividad y tecnología para
+        desarrollar una empresa de pastelería.
+    </p>
+
+    <a href="#materias" class="boton-principal">Explorar proyectos</a>
+
+    <div class="video-contenedor">
+        <video controls preload="metadata">
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no puede reproducir este video.
+        </video>
+    </div>
+</section>
+
+<!-- MATERIAS -->
+<main class="contenedor" id="materias">
+    <h2 class="titulo">Nuestras materias</h2>
+    <p class="descripcion">
+        Selecciona una materia para conocer los proyectos realizados.
+    </p>
+
+    <div class="grid">
+        <div class="tarjeta">
+            <div class="icono">🏢</div>
+            <h3>Negocios Electrónicos</h3>
+            <p>Creación de la empresa Los Masca y sus redes sociales.</p>
+            <a href="Los Masca/tienda.html" class="btn">Ver proyecto</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🏵️</div>
+            <h3>Realidad Virtual</h3>
+            <p>Diseño y creación de una ofrenda virtual.</p>
+            <a href="realidad-virtual.html" class="btn">Ver proyecto</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🎨</div>
+            <h3>Multimedia</h3>
+            <p>Modelado y desarrollo de un personaje en 3D.</p>
+            <a href="multimedia.html" class="btn">Ver proyecto</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">📚</div>
+            <h3>Seminario de Tesis</h3>
+            <p>Documento que integra la información del proyecto.</p>
+            <a href="tesis.html" class="btn">Ver proyecto</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🎙️</div>
+            <h3>Producción de Audio</h3>
+            <p>Doblaje de una película del cine de oro mexicano.</p>
+            <a href="audio.html" class="btn">Ver proyecto</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🇬🇧</div>
+            <h3>Inglés</h3>
+            <p>Exposición en inglés sobre la empresa.</p>
+            <a href="ingles.html" class="btn">Ver proyecto</a>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🧮</div>
+            <h3>Métodos Numéricos</h3>
+            <p>Análisis de ventas, cálculos matemáticos y predicción de ingresos de Los Masca.</p>
+            <a href="proyecto metodos/index.html" class="btn">Ver proyecto</a>
+        </div>
+
+
+</main>
+
+<!-- DESCRIPCIÓN DE PROYECTOS -->
+<section class="contenedor" id="proyectos">
+    <h2 class="titulo">Nuestros proyectos</h2>
+    <p class="descripcion">
+        Conoce los trabajos que forman parte del proyecto integrador.
+    </p>
+
+    <div class="proyecto" id="negocios">
+        <h3>🏢 Negocios Electrónicos</h3>
+        <p>Desarrollo de la identidad empresarial de Los Masca, incluyendo la creación de la empresa y sus redes sociales.</p>
+    </div>
+
+    <div class="proyecto" id="realidad">
+        <h3>🏵️ Realidad Virtual</h3>
+        <p>Creación de una ofrenda virtual mediante herramientas de diseño y modelado digital.</p>
+    </div>
+
+    <div class="proyecto" id="multimedia">
+        <h3>🎨 Multimedia</h3>
+        <p>Modelado tridimensional de un personaje como parte de las actividades de producción multimedia.</p>
+    </div>
+
+    <div class="proyecto" id="tesis">
+        <h3>📚 Seminario de Tesis</h3>
+        <p>Elaboración del documento que integra los objetivos, desarrollo y resultados del proyecto.</p>
+    </div>
+
+    <div class="proyecto" id="audio">
+        <h3>🎙️ Producción de Audio</h3>
+        <p>Realización del doblaje de una película del cine de oro mexicano, trabajando con edición y producción de sonido.</p>
+    </div>
+
+    <div class="proyecto" id="ingles">
+        <h3>🇬🇧 Inglés</h3>
+        <p>Presentación en inglés para explicar la empresa, sus productos y características.</p>
+    </div>
+
+    <div class="proyecto" id="metodos">
+        <h3>🧮 Métodos Numéricos</h3>
+        <p>Desarrollo del presupuesto de Los Masca para organizar los costos y recursos necesarios de la empresa.</p>
+    </div>
+</section>
+
+<footer>
+    <h3>LOS MASCA</h3>
+    <p>Proyecto Integrador 2026</p>
+    <p>Diseño, creatividad y tecnología.</p>
+    <p>© 2026 Los Masca. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

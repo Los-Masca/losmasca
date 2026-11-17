@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Masca | Multimedia</title>
+
+<style>
+:root {
+    --rosa: #f48fb1;
+    --rosa-oscuro: #d81b60;
+    --rosa-claro: #fde4ee;
+    --crema: #fff8f3;
+    --cafe: #65404c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--crema);
+    color: var(--cafe);
+}
+
+header {
+    background: var(--rosa);
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg, #fde4ee, #fff8f3);
+}
+
+.hero h1 {
+    color: var(--rosa-oscuro);
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--rosa-oscuro);
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.presentacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.imagen-principal {
+    background: var(--rosa-claro);
+    border-radius: 20px;
+    min-height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.imagen-principal img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+}
+
+.texto {
+    line-height: 1.8;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 25px;
+    border-radius: 17px;
+    box-shadow: 0 5px 15px rgba(216,27,96,.12);
+    text-align: center;
+}
+
+.tarjeta h3 {
+    color: var(--rosa-oscuro);
+    margin: 12px 0;
+}
+
+.tarjeta p {
+    line-height: 1.6;
+}
+
+.icono {
+    font-size: 45px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.imagen-card {
+    background: white;
+    padding: 12px;
+    border-radius: 17px;
+    box-shadow: 0 5px 15px rgba(216,27,96,.12);
+    text-align: center;
+}
+
+.imagen-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    background: var(--rosa-claro);
+    border-radius: 12px;
+}
+
+.imagen-card h3 {
+    color: var(--rosa-oscuro);
+    margin: 12px 0 5px;
+}
+
+.imagen-card p {
+    font-size: 14px;
+    padding-bottom: 8px;
+}
+
+.proceso {
+    background: var(--rosa-claro);
+    padding: 30px;
+    border-radius: 18px;
+    line-height: 1.8;
+}
+
+.proceso ol {
+    padding-left: 25px;
+}
+
+.resultado {
+    background: white;
+    padding: 35px;
+    text-align: center;
+    border-radius: 18px;
+    box-shadow: 0 5px 15px rgba(216,27,96,.12);
+}
+
+.resultado p {
+    line-height: 1.7;
+}
+
+footer {
+    background: var(--rosa);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+@media(max-width:650px) {
+    .presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    
+    <div class="logo">🧁 LOS MASCA</div>
+    <a href="index.html">← Volver al inicio</a>
+</header>
+
+<section class="hero">
+    <h1>Proyecto de Multimedia</h1>
+    <p>
+        Diseño y modelado tridimensional de un personaje,
+        utilizando herramientas digitales para desarrollar
+        su forma, estructura y apariencia.
+    </p>
+</section>
+
+<main>
+
+<!-- PRESENTACION -->
+
+<section class="contenedor">
+    <h2 class="titulo">Nuestro personaje 3D</h2>
+
+    <div class="presentacion">
+
+        <div class="imagen-principal">
+            <img src="principal.jpeg"
+                 alt="Personaje modelado en 3D"
+                 onerror="this.style.display='none'">
+        </div>
+
+        <div class="texto">
+            <h2>Modelado tridimensional</h2>
+            <br>
+            <p>
+                Este proyecto consiste en desarrollar un
+                personaje tridimensional mediante el uso
+                de herramientas de modelado digital.
+            </p>
+            <br>
+            <p>
+                Durante el proceso se trabaja con la geometría,
+                los vértices, las caras y las formas para
+                construir y dar volumen al personaje.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- OBJETIVOS -->
+
+<section class="contenedor">
+    <h2 class="titulo">Objetivos del proyecto</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">🎯</div>
+            <h3>Diseño</h3>
+            <p>
+                Definir la apariencia y características
+                del personaje.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🧊</div>
+            <h3>Modelado 3D</h3>
+            <p>
+                Construir la estructura tridimensional
+                mediante herramientas de modelado.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🎨</div>
+            <h3>Acabados</h3>
+            <p>
+                Trabajar los detalles, materiales y
+                apariencia visual del personaje.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROCESO -->
+
+<section class="contenedor">
+    <h2 class="titulo">Proceso de modelado</h2>
+
+    <div class="proceso">
+        <ol>
+            <li>Preparación del diseño del personaje.</li>
+            <li>Creación de la geometría inicial.</li>
+            <li>Edición de vértices y formas.</li>
+            <li>Modelado de las diferentes partes del personaje.</li>
+            <li>Aplicación de materiales y detalles.</li>
+            <li>Presentación del modelo terminado.</li>
+        </ol>
+    </div>
+</section>
+
+<!-- VISTAS -->
+
+<section class="contenedor">
+    <h2 class="titulo">Vistas del personaje</h2>
+
+    <div class="galeria">
+
+        <div class="imagen-card">
+            <img src="frente.jpeg"
+                 alt="Vista frontal del personaje">
+            <h3>Vista frontal</h3>
+            <p>Representación del personaje de frente.</p>
+        </div>
+
+        <div class="imagen-card">
+            <img src="lateral.jpeg"
+                 alt="Vista lateral del personaje">
+            <h3>Vista lateral</h3>
+            <p>Visualización del perfil del personaje.</p>
+        </div>
+
+        <div class="imagen-card">
+            <img src="atras.jpeg"
+                 alt="Vista posterior del personaje">
+            <h3>Vista posterior</h3>
+            <p>Representación de la parte trasera.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- GALERIA DE AVANCES -->
+
+<section class="contenedor">
+    <h2 class="titulo">Avances del proyecto</h2>
+
+    <div class="galeria">
+
+        <div class="imagen-card">
+            <img src="arriba.jpeg"
+                 alt="Primer avance">
+            <h3>Primer avance</h3>
+            <p>Inicio del modelado.</p>
+        </div>
+
+        
+</section>
+
+<!-- SOFTWARE -->
+
+<section class="contenedor">
+    <div class="resultado">
+        <h2 class="titulo">Herramientas utilizadas</h2>
+        <div class="icono">💻</div>
+        <h3>Autodesk Maya</h3>
+        <br>
+        <p>
+            Software utilizado para la creación, edición
+            y modelado de objetos y personajes en tres dimensiones.
+        </p>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <h3>LOS MASCA</h3>
+    <p>Proyecto Integrador 2026</p>
+    <p>Materia: Multimedia</p>
+</footer>
+
+</body>
+</html>

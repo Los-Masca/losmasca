@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Masca | Seminario de Tesis</title>
+
+<style>
+:root {
+    --rosa: #f48fb1;
+    --rosa-oscuro: #d81b60;
+    --rosa-claro: #fde4ee;
+    --crema: #fff8f3;
+    --cafe: #65404c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--crema);
+    color: var(--cafe);
+}
+
+header {
+    background: var(--rosa);
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg, #fde4ee, #fff8f3);
+}
+
+.hero h1 {
+    color: var(--rosa-oscuro);
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.contenedor {
+    max-width: 1050px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.titulo {
+    color: var(--rosa-oscuro);
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.documento {
+    background: white;
+    padding: 28px;
+    margin-bottom: 22px;
+    border-radius: 17px;
+    box-shadow: 0 5px 15px rgba(216,27,96,.10);
+    line-height: 1.8;
+}
+
+.documento h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 12px;
+}
+
+.documento p {
+    text-align: justify;
+}
+
+.documento ul,
+.documento ol {
+    padding-left: 25px;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 25px;
+    border-radius: 17px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(216,27,96,.10);
+}
+
+.tarjeta h3 {
+    color: var(--rosa-oscuro);
+    margin: 12px 0;
+}
+
+.icono {
+    font-size: 40px;
+}
+
+.integracion {
+    background: var(--rosa-claro);
+    padding: 30px;
+    border-radius: 18px;
+    line-height: 2;
+}
+
+footer {
+    background: var(--rosa);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    line-height: 1.8;
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🧁 LOS MASCA</div>
+    <a href="index.html">← Volver al inicio</a>
+</header>
+
+<section class="hero">
+    <h1>Seminario de Tesis</h1>
+    <p>
+        Documentación e integración de los conocimientos
+        adquiridos durante el desarrollo del proyecto
+        integrador de la empresa LOS MASCA.
+    </p>
+</section>
+
+<main>
+
+<section class="contenedor">
+
+    <h2 class="titulo">Documento del proyecto</h2>
+
+    <div class="documento">
+        <h3>1. Introducción</h3>
+        <p>
+            El presente proyecto consiste en el desarrollo
+            de LOS MASCA, una empresa dedicada a la elaboración
+            y comercialización de productos de repostería.
+            Su desarrollo integra conocimientos de diseño,
+            programación, administración, producción multimedia
+            y negocios electrónicos.
+        </p>
+    </div>
+
+    <div class="documento">
+        <h3>2. Planteamiento del problema</h3>
+        <p>
+            Los pequeños negocios de repostería necesitan
+            herramientas digitales que les permitan dar a
+            conocer sus productos, organizar sus actividades
+            y facilitar la comunicación con sus clientes.
+            Por ello, se propone desarrollar una empresa
+            que integre recursos tecnológicos y estrategias
+            digitales para mejorar su funcionamiento.
+        </p>
+    </div>
+
+    <div class="documento">
+        <h3>3. Justificación</h3>
+        <p>
+            El proyecto LOS MASCA permite aplicar los
+            conocimientos adquiridos durante la formación
+            académica mediante la creación de una empresa
+            de repostería. Además, busca aprovechar las
+            herramientas tecnológicas para desarrollar
+            una identidad empresarial, una página web
+            y diferentes recursos digitales.
+        </p>
+    </div>
+
+    <div class="documento">
+        <h3>4. Objetivo general</h3>
+        <p>
+            Desarrollar una empresa de pastelería denominada
+            LOS MASCA mediante la integración de herramientas
+            digitales, estrategias comerciales y recursos
+            multimedia para presentar y comercializar
+            productos de repostería.
+        </p>
+
+        <br>
+
+        <h3>Objetivos específicos</h3>
+        <ul>
+            <li>Diseñar la identidad visual de la empresa.</li>
+            <li>Crear una página web para mostrar los productos.</li>
+            <li>Desarrollar una base de datos para administrar información.</li>
+            <li>Elaborar recursos gráficos y tridimensionales.</li>
+            <li>Establecer estrategias de promoción digital.</li>
+            <li>Organizar los costos y presupuestos del negocio.</li>
+        </ul>
+    </div>
+
+    <div class="documento">
+        <h3>5. Alcance del proyecto</h3>
+        <p>
+            El proyecto contempla la creación de la identidad
+            empresarial, el desarrollo de una tienda virtual,
+            la organización de productos mediante una base
+            de datos y la elaboración de materiales gráficos,
+            audiovisuales y multimedia relacionados con
+            LOS MASCA.
+        </p>
+    </div>
+
+    <div class="documento">
+        <h3>6. Metodología de trabajo</h3>
+        <p>
+            Para desarrollar el proyecto se seguirá un proceso
+            organizado en diferentes etapas:
+        </p>
+        <ol>
+            <li>Planeación de la empresa.</li>
+            <li>Diseño de identidad y organización del negocio.</li>
+            <li>Desarrollo de recursos multimedia.</li>
+            <li>Programación de la página web.</li>
+            <li>Creación y conexión de la base de datos.</li>
+            <li>Pruebas, revisión y presentación del proyecto.</li>
+        </ol>
+    </div>
+
+</section>
+
+<section class="contenedor">
+
+    <h2 class="titulo">Integración de las materias</h2>
+
+    <div class="integracion">
+
+        <p><b>Proyectos de Negocios Electrónicos:</b>
+        Creación de la empresa y redes sociales.</p>
+
+        <p><b>Realidad Virtual:</b>
+        Elaboración de una ofrenda virtual.</p>
+
+        <p><b>Multimedia:</b>
+        Modelado de un personaje en 3D.</p>
+
+        <p><b>Producción de Audio:</b>
+        Doblaje de una película del cine de oro.</p>
+
+        <p><b>Inglés:</b>
+        Presentación de la empresa en inglés.</p>
+
+        <p><b>Métodos Numéricos:</b>
+        Elaboración del presupuesto empresarial.</p>
+
+        <p><b>Administrador de Servidores Web:</b>
+        Desarrollo de la página y base de datos.</p>
+
+    </div>
+
+</section>
+
+<section class="contenedor">
+
+    <h2 class="titulo">Conclusiones</h2>
+
+    <div class="documento">
+        <p>
+            El proyecto integrador LOS MASCA representa
+            una oportunidad para aplicar los conocimientos
+            adquiridos en diferentes materias. Mediante
+            su desarrollo se busca combinar creatividad,
+            tecnología y organización empresarial para
+            construir una propuesta de negocio digital.
+        </p>
+        <br>
+        <p>
+            Las conclusiones finales se complementarán
+            una vez terminadas las actividades y evaluados
+            los resultados del proyecto.
+        </p>
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <h3>LOS MASCA</h3>
+    <p>Proyecto Integrador 2026</p>
+    <p>Materia: Seminario de Tesis</p>
+</footer>
+
+</body>
+</html>

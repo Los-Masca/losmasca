@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Masca | Realidad Virtual</title>
+
+<style>
+:root {
+    --rosa: #f48fb1;
+    --rosa-oscuro: #d81b60;
+    --rosa-claro: #fde4ee;
+    --crema: #fff8f3;
+    --cafe: #65404c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--crema);
+    color: var(--cafe);
+}
+
+header {
+    background: var(--rosa);
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg, #fde4ee, #fff8f3);
+}
+
+.hero h1 {
+    color: var(--rosa-oscuro);
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--rosa-oscuro);
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.presentacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.imagen-principal {
+    background: var(--rosa-claro);
+    border-radius: 20px;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.imagen-principal img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.placeholder {
+    text-align: center;
+    font-size: 75px;
+}
+
+.texto {
+    line-height: 1.8;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 25px;
+    border-radius: 17px;
+    box-shadow: 0 5px 15px rgba(216,27,96,.12);
+    text-align: center;
+}
+
+.tarjeta h3 {
+    color: var(--rosa-oscuro);
+    margin: 12px 0;
+}
+
+.icono {
+    font-size: 45px;
+}
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.galeria img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: var(--rosa-claro);
+}
+
+.galeria p {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.video {
+    background: var(--rosa-claro);
+    border-radius: 20px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.video a {
+    display: inline-block;
+    margin-top: 20px;
+    background: var(--rosa-oscuro);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+footer {
+    background: var(--rosa);
+    color: white;
+    padding: 25px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+@media(max-width:650px) {
+    .presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🧁 LOS MASCA</div>
+    <a href="index.html">← Volver al inicio</a>
+</header>
+
+<section class="hero">
+    <h1>Realidad Virtual</h1>
+    <p>
+        Diseño y creación de una ofrenda virtual que representa
+        las tradiciones mexicanas del Día de Muertos mediante
+        herramientas digitales y elementos tridimensionales.
+    </p>
+</section>
+
+<main>
+
+<section class="contenedor">
+    <h2 class="titulo">Nuestro proyecto</h2>
+
+    <div class="presentacion">
+
+        <div class="imagen-principal">
+            <img src="ofrenda.png"
+                 alt="Ofrenda virtual"
+                 onerror="this.style.display='none'">
+            <div class="placeholder">🏵️💀</div>
+        </div>
+
+        <div class="texto">
+            <h2>Ofrenda virtual de Día de Muertos</h2>
+            <br>
+            <p>
+                Este proyecto consiste en desarrollar una
+                representación digital de una ofrenda mexicana,
+                incorporando elementos tradicionales como
+                flores de cempasúchil, veladoras, fotografías,
+                papel picado y alimentos.
+            </p>
+            <br>
+            <p>
+                A través de la tecnología buscamos representar
+                nuestras tradiciones culturales en un entorno
+                virtual e interactivo.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contenedor">
+    <h2 class="titulo">Objetivo del proyecto</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">🎯</div>
+            <h3>Objetivo general</h3>
+            <p>
+                Crear una ofrenda virtual que permita representar
+                las tradiciones del Día de Muertos mediante
+                recursos digitales.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">💻</div>
+            <h3>Desarrollo digital</h3>
+            <p>
+                Aplicar herramientas tecnológicas para diseñar
+                un espacio virtual con elementos tridimensionales.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🇲🇽</div>
+            <h3>Tradición mexicana</h3>
+            <p>
+                Representar los elementos culturales y
+                tradicionales que forman parte de esta celebración.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contenedor">
+    <h2 class="titulo">Elementos de la ofrenda</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">🌼</div>
+            <h3>Flores</h3>
+            <p>Representan el camino para recibir a los difuntos.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🕯️</div>
+            <h3>Veladoras</h3>
+            <p>Simbolizan la luz que guía a las almas.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🍞</div>
+            <h3>Pan de muerto</h3>
+            <p>Uno de los alimentos tradicionales de la ofrenda.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">💀</div>
+            <h3>Calaveras</h3>
+            <p>Representan la relación cultural con la muerte.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="contenedor">
+    <h2 class="titulo">Galería del proyecto</h2>
+
+    <div class="galeria">
+
+        <div>
+            <img src="ofrenda.png"
+                 alt="Diseño de la ofrenda">
+            <p>Diseño de la ofrenda</p>
+        </div>
+       
+</section>
+
+<section class="contenedor">
+    <div class="video">
+        <h2>🎬 Presentación virtual</h2>
+        <p>
+            En este espacio se podrá visualizar el recorrido
+            o video de nuestra ofrenda virtual.
+        </p>
+
+        <!-- Agregar aquí el enlace del video cuando esté listo -->
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <h3>LOS MASCA</h3>
+    <p>Proyecto Integrador 2026</p>
+    <p>Materia: Realidad Virtual</p>
+</footer>
+
+</body>
+</html>

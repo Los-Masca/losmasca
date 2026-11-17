@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Los Masca | Producción de Audio</title>
+
+<style>
+:root {
+    --rosa: #f48fb1;
+    --rosa-oscuro: #d81b60;
+    --rosa-claro: #fde4ee;
+    --crema: #fff8f3;
+    --cafe: #65404c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--crema);
+    color: var(--cafe);
+}
+
+header {
+    background: var(--rosa);
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.logo {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 65px 20px;
+    background: linear-gradient(135deg, #fde4ee, #fff8f3);
+}
+
+.hero h1 {
+    color: var(--rosa-oscuro);
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--rosa-oscuro);
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.presentacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    align-items: center;
+}
+
+.portada {
+    background: var(--rosa-claro);
+    min-height: 280px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.portada img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.texto {
+    line-height: 1.8;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 25px;
+    border-radius: 17px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(216,27,96,.12);
+}
+
+.tarjeta h3 {
+    color: var(--rosa-oscuro);
+    margin: 12px 0;
+}
+
+.tarjeta p {
+    line-height: 1.6;
+}
+
+.icono {
+    font-size: 45px;
+}
+
+.proceso {
+    background: var(--rosa-claro);
+    padding: 30px;
+    border-radius: 18px;
+    line-height: 1.9;
+}
+
+.proceso ol {
+    padding-left: 25px;
+}
+
+.audio-box {
+    background: white;
+    padding: 35px 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(216,27,96,.12);
+}
+
+.audio-box h3 {
+    color: var(--rosa-oscuro);
+    margin-bottom: 15px;
+}
+
+.audio-box audio {
+    width: 100%;
+    max-width: 550px;
+    margin-top: 20px;
+}
+
+.nota {
+    background: var(--rosa-claro);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+footer {
+    background: var(--rosa);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    line-height: 1.8;
+}
+
+@media(max-width:650px) {
+    .presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🧁 LOS MASCA</div>
+    <a href="index.html">← Volver al inicio</a>
+</header>
+
+<section class="hero">
+    <h1>Producción de Audio</h1>
+    <p>
+        Proyecto de doblaje de una película del Cine de Oro
+        Mexicano, aplicando técnicas de grabación,
+        interpretación y edición de sonido.
+    </p>
+</section>
+
+<main>
+
+<!-- PRESENTACION -->
+
+<section class="contenedor">
+    <h2 class="titulo">Nuestro proyecto</h2>
+
+    <div class="presentacion">
+
+        <div class="portada">
+            <img src="../imagenes/pelicula.png"
+                 alt="Película seleccionada"
+                 onerror="this.style.display='none'">
+            <span style="font-size:70px">🎬</span>
+        </div>
+
+        <div class="texto">
+            <h2>Doblaje cinematográfico</h2>
+            <br>
+            <p>
+                Este proyecto consiste en realizar el doblaje
+                de una película perteneciente al Cine de Oro
+                Mexicano, mediante la grabación de voces
+                y la edición de diferentes elementos sonoros.
+            </p>
+            <br>
+            <p>
+                Se busca recrear los diálogos de los personajes,
+                cuidando la interpretación, la sincronización
+                y la calidad del audio.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- OBJETIVOS -->
+
+<section class="contenedor">
+    <h2 class="titulo">Objetivos del proyecto</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">🎙️</div>
+            <h3>Grabación</h3>
+            <p>
+                Registrar las voces de los personajes
+                utilizando herramientas de audio.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🎧</div>
+            <h3>Edición</h3>
+            <p>
+                Mejorar la calidad de las grabaciones
+                y organizar los elementos sonoros.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🎬</div>
+            <h3>Sincronización</h3>
+            <p>
+                Coordinar los diálogos con los movimientos
+                y escenas de los personajes.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- DATOS DE PELICULA -->
+
+<section class="contenedor">
+    <h2 class="titulo">Ficha de la película</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">🎞️</div>
+            <h3>Nombre</h3>
+            <p>Coloca aquí el título de la película.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">📅</div>
+            <h3>Año</h3>
+            <p>Agrega el año de estreno.</p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🎭</div>
+            <h3>Género</h3>
+            <p>Indica el género cinematográfico.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PERSONAJES -->
+
+<section class="contenedor">
+    <h2 class="titulo">Personajes y doblaje</h2>
+
+    <div class="tarjetas">
+
+        <div class="tarjeta">
+            <div class="icono">👩</div>
+            <h3>Personaje 1</h3>
+            <p>
+                Nombre del personaje y de la persona
+                encargada de interpretar su voz.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">👨</div>
+            <h3>Personaje 2</h3>
+            <p>
+                Nombre del personaje y de la persona
+                encargada de interpretar su voz.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="icono">🎭</div>
+            <h3>Personaje 3</h3>
+            <p>
+                Nombre del personaje y de la persona
+                encargada de interpretar su voz.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROCESO -->
+
+<section class="contenedor">
+    <h2 class="titulo">Proceso de producción</h2>
+
+    <div class="proceso">
+        <ol>
+            <li>Selección de la película y las escenas.</li>
+            <li>Identificación de los personajes y diálogos.</li>
+            <li>Asignación de voces.</li>
+            <li>Grabación de los diálogos.</li>
+            <li>Edición y limpieza del audio.</li>
+            <li>Sincronización de voces con el video.</li>
+            <li>Exportación del doblaje final.</li>
+        </ol>
+    </div>
+</section>
+
+<!-- AUDIO -->
+
+<section class="contenedor">
+    <h2 class="titulo">Escucha nuestro doblaje</h2>
+
+    <div class="audio-box">
+        <div class="icono">🎧</div>
+
+        <h3>Audio del proyecto</h3>
+
+        <p>
+            En este espacio podrás escuchar
+            el resultado de nuestro trabajo.
+        </p>
+
+        <audio controls>
+            <source src="audio.mp4" type="audio/mpeg">
+            Tu navegador no puede reproducir este audio.
+        </audio>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <h3>LOS MASCA</h3>
+    <p>Proyecto Integrador 2026</p>
+    <p>Materia: Producción de Audio</p>
+</footer>
+
+</body>
+</html>
